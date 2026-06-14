@@ -1,0 +1,14 @@
+◇ injected env (6) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+🌉 The Bridge server running on port 3001
+   Health:     GET  /api/health
+   Auth:       GET  /api/auth/google (start OAuth flow)
+   Mail:       GET  /api/auth/mail/recent
+   Bot push:   POST /api/bots/forex|polymarket|wallethunter
+   Bot read:   GET  /api/bots/forex|polymarket|wallethunter|status
+   Tasks:      GET/POST /api/tasks, PUT/DELETE /api/tasks/:id
+   Must Do's:  GET/POST /api/must-dos, PUT /api/must-dos/:position
+   Gratitude:  GET/POST /api/gratitude
+   Health:     GET /api/health/status, POST /api/health/log
+   Reading:    GET/POST /api/reading/list, PATCH /api/reading/list/:id
+   Ledger:     GET /api/ledger/projects, GET /api/ledger/projects/:slug/tickets
+   Chat:       POST /api/chat

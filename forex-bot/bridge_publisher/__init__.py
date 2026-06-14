@@ -1,0 +1,1 @@
+"""Bridge publisher package."""

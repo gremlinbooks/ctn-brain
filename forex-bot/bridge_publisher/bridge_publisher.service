@@ -1,0 +1,27 @@
+[Unit]
+Description=Atlas → Bridge Forex Publisher
+After=network.target atlas-trading-engine.service
+
+[Service]
+Type=simple
+User=trader
+WorkingDirectory=/home/trader/atlas-trading-engine/atlas-trading-engine-new
+ExecStart=/home/trader/atlas-trading-engine/atlas-trading-engine-new/forex-bot/bridge_publisher/run_bridge_publisher.sh
+Restart=always
+RestartSec=10
+
+# Environment — override these in /etc/systemd/system/bridge_publisher.service.d/override.conf
+Environment=BRIDGE_FOREX_URL=https://the-bridge-oakbridge-c722e469caec.herokuapp.com/api/bots/forex
+Environment=BRIDGE_API_KEY=bridge-bot-2026
+Environment=PUBLISH_INTERVAL_SECONDS=60
+Environment=ATLAS_HEALTH_URL=http://127.0.0.1:8096/api/v1/health
+Environment=TRADES_DB=/home/trader/atlas-trading-engine/atlas-trading-engine-new/data/trades.db
+Environment=STALE_THRESHOLD_SECONDS=1200
+
+# Log to journal
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=bridge-publisher
+
+[Install]
+WantedBy=multi-user.target
